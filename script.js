@@ -17,7 +17,7 @@ function showContent() {
 }
 
 function handleYesClick() {
-    document.querySelector('.flower-container').style.display = 'none';
+    document.querySelector('.flowers').style.display = 'none';
     document.getElementById("conteudo").style.display = "none";
     document.getElementById("video").style.display = "block";
     createHearts();
