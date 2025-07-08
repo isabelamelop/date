@@ -1184,6 +1184,7 @@ body {
 @keyframes growing-grass-ans {
   0% {
     transform: scale(0);
+    opacity: 0;
   }
 }
 
