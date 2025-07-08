@@ -1,60 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surpresa!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS -->
+    <title>Para Você ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffeef8 100%);
+            color: #333;
+        }
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        .heart {
+            position: fixed;
+            pointer-events: none;
+            width: 30px;
+            animation: falling linear infinite;
+            z-index: 1;
+        }
+        @keyframes falling {
+            0% {
+                transform: translate(0, -100%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--random-x, 0), 100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        .polaroid {
+            background: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+        }
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .memory-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        .memory-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
+<body class="min-h-screen overflow-x-hidden">
+    <!-- Fundo Interativo -->
+    <div id="interactive-bg" class="fixed inset-0 overflow-hidden z-0"></div>
 
-<body class="not-loaded">
-    <div class="night"></div>
-    <div class="flowers">
-        <div class="flower flower--1">
-            <div class="flower__leafs flower__leafs--1">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
-                <div class="flower__light flower__light--1"></div>
-                <div class="flower__light flower__light--2"></div>
-                <div class="flower__light flower__light--3"></div>
-                <div class="flower__light flower__light--4"></div>
-                <div class="flower__light flower__light--5"></div>
-                <div class="flower__light flower__light--6"></div>
-                <div class="flower__light flower__light--7"></div>
-                <div class="flower__light flower__light--8"></div>
+    <!-- Conteúdo Principal -->
+    <div class="relative z-10 max-w-6xl mx-auto px-4 py-12">
+        <!-- Cabeçalho -->
+        <header class="text-center mb-16">
+            <h1 class="dancing-font text-5xl md:text-7xl font-bold text-pink-600 mb-6">Oi, linda!</h1>
+        </header>
+
+        <!-- Mensagem Principal -->
+        <section class="mb-10 bg-white p-6 rounded-xl shadow-lg max-w-3xl mx-auto">
+            <div class="text-center">
+                <p class="text-gray-700 mb-6 text-xl">
+                    Passando aqui pra confirmar nosso poke hoje!
+                </p>
+                <h2 class="text-2xl mb-6">Se quiser, confirma aqui 👇</h2>
+                <a href="wa.me/+5531983862759" class="mt-4 px-6 py-3 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition-all inline-block text-lg"
+                   onclick="window.open(this.href+'&text=Oi amor da minha vida vamo comer o poke, mas sem bjinhos hoje :(', '_blank'); return false;">
+                    Confirmar Poke Date ❤️
+                </a>
             </div>
-            <div class="flower__line">
-                <div class="flower__line__leaf flower__line__leaf--1"></div>
-                <div class="flower__line__leaf flower__line__leaf--2"></div>
-                <div class="flower__line__leaf flower__line__leaf--3"></div>
-                <div class="flower__line__leaf flower__line__leaf--4"></div>
-                <div class="flower__line__leaf flower__line__leaf--5"></div>
-                <div class="flower__line__leaf flower__line__leaf--6"></div>
-            </div>
-        </div>
+        </section>
+
+        <!-- Nosso Vídeo -->
+        <section id="timeline-section" class="mb-20">
+            <h2 class="dancing-font text-3xl md:text-4xl text-center text-pink-600 mb-12">Nosso Vídeo</h2>
+            
+            <div class="space-y-8">
+                <!-- Nossa Primeira Saída -->
+                <div class="memory-card visible">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="md:w-2/3 video-container">
+                            <video controls class="w-full">
+                                <source src="IMG_6349 (1).mov" type="video/mp4">
+                                Seu navegador não suporta o elemento de vídeo.
+                            </video>
+                        </div>
+                        <div class="md:w-1/3">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Nosso momento especial ❤️</h3>
+                            <p class="text-gray-600">Essa é nossa primeira gravação juntos!</p>
+                            <div class="mt-4">
+                                <a href="wa.me/+5531983862759" class="text-pink-500 hover:text-pink-600 font-medium">Vamos criar mais momentos hoje? ❤️</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+        </section>
     </div>
 
-    <div id="conteudo" style="display: none;"> <!-- Inicialmente oculto -->
-        <audio id="bgMusic" loop>
-            <source src="romantic-music.mp3" type="audio/mpeg">
-        </audio>
-        <h2>Aceita me dar mais um beijinho? 💖</h2> <!-- Mensagem -->
-        <div class="button-container">
-            <button class="btn" id="yesButton">SIM</button>
-            <button class="btn" id="noButton">NÃO</button>
-        </div>
-    </div>
+    <script>
+        // Criar corações caindo automaticamente
+        function createFallingHeart() {
+            const heart = document.createElement('img');
+            heart.className = 'heart';
+            heart.src = 'heart.png';
+            
+            // Posição horizontal aleatória
+            const randomX = Math.random() * window.innerWidth;
+            
+            // Duração animação aleatória (3-6 segundos)
+            const duration = 3 + Math.random() * 3;
+            
+            heart.style.left = randomX + 'px';
+            heart.style.setProperty('--random-x', (Math.random() * 50 - 25) + 'px');
+            heart.style.animationDuration = duration + 's';
+            
+            document.body.appendChild(heart);
+            
+            // Remover após animação
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+        
+        // Criar corações periodicamente
+        setInterval(createFallingHeart, 300);
 
-    <div id="video" style="display:none;">
-        <video src="IMG_6349 (1).mov" controls autoplay></video> <!-- Atualizado para o novo vídeo -->
-    </div>
+        // Revelar seções ao clicar no botão
+        document.getElementById('reveal-btn').addEventListener('click', function() {
+            this.style.display = 'none';
+            
+            // Mostrar timeline
+            document.getElementById('timeline-section').classList.remove('hidden');
+            
+            // Mostrar galeria depois de um delay
+            setTimeout(() => {
+                document.getElementById('gallery-section').classList.remove('hidden');
+                
+                // Mostrar mensagem final depois de outro delay
+                setTimeout(() => {
+                    document.getElementById('final-message').classList.remove('hidden');
+                    
+                    // Animar cards da timeline
+                    const memoryCards = document.querySelectorAll('.memory-card');
+                    memoryCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 300);
+                    });
+                }, 800);
+            }, 800);
+        });
 
-    <script src="script.js"></script> <!-- Link para o JavaScript -->
+        // Efeito de digitação (pode personalizar a mensagem)
+        const typeEffect = (element, text, speed = 50) => {
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, speed);
+        };
+    </script>
 </body>
-
 </html>
