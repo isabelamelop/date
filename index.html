@@ -11,7 +11,6 @@
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #ffeef8 100%);
             color: #333;
-            overflow: hidden;
         }
         .dancing-font {
             font-family: 'Dancing Script', cursive;
@@ -24,7 +23,6 @@
             animation: falling linear infinite;
             z-index: 1;
             user-select: none;
-            -webkit-user-select: none;
         }
         @keyframes falling {
             0% {
@@ -53,23 +51,15 @@
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
-        .memory-card {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-        .memory-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
         .button {
             background-color: #ff6b81;
             color: white;
             padding: 10px 20px;
             border-radius: 25px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
             font-weight: 600;
             font-size: 1rem;
+            display: inline-block;
         }
         .button:hover {
             background-color: #ff4c6a;
@@ -88,10 +78,10 @@
 </head>
 <body>
     <!-- Fundo Interativo -->
-    <div id="interactive-bg" class="fixed inset-0 overflow-hidden z-0"></div>
+    <div id="interactive-bg" class="fixed inset-0 z-0"></div>
 
     <!-- Conteúdo Principal -->
-    <div class="relative z-10 max-w-6xl mx-auto px-4 py-8 md:py-12">
+    <main class="relative z-10 max-w-6xl mx-auto px-4 py-8 md:py-12">
         <!-- Cabeçalho -->
         <header class="text-center mb-8 md:mb-16">
             <h1 class="dancing-font text-4xl md:text-7xl font-bold text-pink-600 mb-4">Oi, linda!</h1>
@@ -104,22 +94,20 @@
                     Passando aqui pra confirmar nosso poke hoje!
                 </p>
                 <h2 class="text-xl md:text-2xl mb-4">Se quiser, confirma aqui 👇</h2>
-                <a href="https://wa.me/+5531983862759?text=Oi%20isabela%20sua%20gata,%20vamo%20comer%20o%20poke,%20mas%20sem%20bjinhos%20hoje%20:(" class="button mt-4 inline-block" target="_blank">
+                <a href="https://wa.me/+5531983862759?text=Oi%20isabela%20sua%20gata,%20vamo%20comer%20o%20poke,%20mas%20sem%20bjinhos%20hoje%20:(" class="button mt-4" target="_blank" rel="noopener">
                     Confirmar o Date ❤️
                 </a>
             </div>
         </section>
 
         <!-- Nosso Vídeo -->
-        <section id="timeline-section" class="mb-20">
+        <section class="mb-20">
             <h2 class="dancing-font text-3xl md:text-4xl text-center text-pink-600 mb-8">Você & Eu</h2>
-            
             <div class="space-y-8">
-                <!-- Nossa Primeira Saída -->
-                <div class="memory-card visible">
+                <div class="polaroid">
                     <div class="flex flex-col md:flex-row items-center gap-8">
                         <div class="w-full md:w-2/3 video-container">
-                            <video controls class="w-full">
+                            <video controls class="w-full rounded-lg" playsinline poster="poster.jpg">
                                 <source src="IMG_6349 (1).mov" type="video/mp4">
                                 Seu navegador não suporta o elemento de vídeo.
                             </video>
@@ -135,74 +123,24 @@
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
+    <!-- Corações caindo -->
     <script>
-        // Criar corações caindo automaticamente
         function createFallingHeart() {
             const heart = document.createElement('img');
-            heart.className = 'heart';
             heart.src = 'heart.png';
-            
-            // Posição horizontal aleatória
+            heart.className = 'heart';
+            heart.alt = 'Coração';
             const randomX = Math.random() * window.innerWidth;
-            
-            // Duração animação aleatória (3-6 segundos)
             const duration = 3 + Math.random() * 3;
-            
             heart.style.left = randomX + 'px';
             heart.style.setProperty('--random-x', (Math.random() * 50 - 25) + 'px');
             heart.style.animationDuration = duration + 's';
-            
             document.body.appendChild(heart);
-            
-            // Remover após animação
-            setTimeout(() => {
-                heart.remove();
-            }, duration * 1000);
+            setTimeout(() => heart.remove(), duration * 1000);
         }
-        
-        // Criar corações periodicamente
         setInterval(createFallingHeart, 300);
-
-        // Revelar seções ao clicar no botão
-        document.getElementById('reveal-btn').addEventListener('click', function() {
-            this.style.display = 'none';
-            
-            // Mostrar timeline
-            document.getElementById('timeline-section').classList.remove('hidden');
-            
-            // Mostrar galeria depois de um delay
-            setTimeout(() => {
-                document.getElementById('gallery-section').classList.remove('hidden');
-                
-                // Mostrar mensagem final depois de outro delay
-                setTimeout(() => {
-                    document.getElementById('final-message').classList.remove('hidden');
-                    
-                    // Animar cards da timeline
-                    const memoryCards = document.querySelectorAll('.memory-card');
-                    memoryCards.forEach((card, index) => {
-                        setTimeout(() => {
-                            card.classList.add('visible');
-                        }, index * 300);
-                    });
-                }, 800);
-            }, 800);
-        });
-
-        // Efeito de digitação (pode personalizar a mensagem)
-        const typeEffect = (element, text, speed = 50) => {
-            let i = 0;
-            const typing = setInterval(() => {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(typing);
-                }
-            }, speed);
-        };
     </script>
 </body>
 </html>
