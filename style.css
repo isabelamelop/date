@@ -8,32 +8,100 @@
 
 :root {
     --dark-color: #000000;
+    --flower-color: #ffccff;
+    --text-color: #ff69b4;
 }
 
 body {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     min-height: 100vh;
     background-color: var(--dark-color);
     overflow: hidden;
     perspective: 1000px;
-    padding: 50px 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
-.night {
-    position: fixed;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 100%;
-    filter: blur(0.1vmin);
-}
-
-.flowers {
+.flower-container {
     position: relative;
     transform: scale(0.9);
 }
 
-/* Adicione o restante do CSS aqui, conforme necessário */
+.flower {
+    position: absolute;
+    bottom: 10vmin;
+    transform-origin: bottom center;
+    z-index: 10;
+    animation: grow-flower 2s forwards;
+}
+
+@keyframes grow-flower {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.flower__leafs {
+    position: relative;
+    animation: blooming-flower 2s forwards;
+}
+
+.flower__leaf {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 8vmin;
+    height: 11vmin;
+    border-radius: 50%;
+    background-color: var(--flower-color);
+    transform-origin: bottom center;
+}
+
+.flower__white-circle {
+    position: absolute;
+    left: -3.5vmin;
+    top: -3vmin;
+    width: 9vmin;
+    height: 4vmin;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    text-align: center;
+    margin: 20px 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #ffccff;
+    transform: scale(1.05);
+}
+
+#video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
