@@ -19,14 +19,15 @@ function showContent() {
 function handleYesClick() {
     document.querySelector('.flowers').style.display = 'none';
     document.getElementById("conteudo").style.display = "none";
-    document.getElementById("video").style.display = "block";
+    document.getElementById("video").style.display = "block"; // Exibe o vídeo
     createHearts();
 }
 
 function handleNoHover() {
-    this.style.position = 'absolute';
-    this.style.bottom = geraPosicao(10, 90);
-    this.style.left = geraPosicao(10, 90);
+    const noButton = this;
+    noButton.style.position = 'absolute';
+    noButton.style.bottom = geraPosicao(10, 90);
+    noButton.style.left = geraPosicao(10, 90);
 }
 
 function geraPosicao(min, max) {
