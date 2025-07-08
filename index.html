@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flores Animadas</title>
+    <title>Surpresa!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- Link para o CSS -->
 </head>
 
 <body class="not-loaded">
-    <div class="night"></div>
-    <div class="flowers">
+    <div class="flower-container">
         <div class="flower flower--1">
             <div class="flower__leafs flower__leafs--1">
                 <div class="flower__leaf flower__leaf--1"></div>
@@ -26,22 +26,21 @@
                 <div class="flower__line__leaf flower__line__leaf--4"></div>
             </div>
         </div>
-        <!-- Adicione mais flores conforme necessário -->
-    </div>
-    <div class="growing-grass">
-        <div class="flower__grass flower__grass--1"></div>
-        <div class="flower__grass flower__grass--2"></div>
     </div>
 
     <div id="conteudo" style="display: none;"> <!-- Inicialmente oculto -->
         <audio id="bgMusic" loop>
             <source src="romantic-music.mp3" type="audio/mpeg">
         </audio>
-        <h2>Aceita me dar mais beijinhos? 💝</h2> <!-- Mensagem atualizada -->
+        <h2>Aceita me dar mais um beijinho? 💖</h2> <!-- Mensagem -->
         <div class="button-container">
-            <button class="btn" onclick="sim()">SIM</button>
-            <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)">NÃO</button>
+            <button class="btn" id="yesButton">SIM</button>
+            <button class="btn" id="noButton">NÃO</button>
         </div>
+    </div>
+
+    <div id="video" style="display:none;">
+        <video src="beijo.mov" controls autoplay></video>
     </div>
 
     <script src="script.js"></script> <!-- Link para o JavaScript -->
