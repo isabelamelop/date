@@ -42,6 +42,16 @@ body {
     transform-origin: bottom center;
     z-index: 10;
     --fl-speed: 0.8s;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 .flower__leafs {
